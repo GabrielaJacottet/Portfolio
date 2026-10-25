@@ -237,6 +237,7 @@ h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.22r
       this.setup()
       this.autoplay = !this.reduced
       if (this.reduced) this.finalState(); else this.initState()
+      this.setPlayLabel()
       this.render()
       this.observe()
     }

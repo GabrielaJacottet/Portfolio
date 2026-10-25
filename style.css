@@ -325,7 +325,8 @@ h2 {
   line-height: 1.85;
   color: var(--muted);
 }
-memory-garden-demo {
+memory-garden-demo,
+xeque-na-esteira-demo {
   display: block;
   margin-top: 28px;
 }
@@ -333,6 +334,11 @@ memory-garden-demo:not(:defined) {
   min-height: 585px;
   border-radius: 8px;
   background: #e9e6de;
+}
+xeque-na-esteira-demo:not(:defined) {
+  min-height: 740px;
+  border-radius: 8px;
+  background: #0f121b;
 }
 .showcase-links {
   display: flex;
@@ -702,6 +708,9 @@ memory-garden-demo:not(:defined) {
   }
   memory-garden-demo:not(:defined) {
     min-height: 1040px;
+  }
+  xeque-na-esteira-demo:not(:defined) {
+    min-height: 1077px;
   }
   .project {
     grid-template-columns: 1fr;

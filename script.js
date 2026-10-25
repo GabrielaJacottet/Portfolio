@@ -14,32 +14,42 @@ copyButton.addEventListener('click', async () => {
   }
 });
 
-const demo = document.querySelector('memory-garden-demo');
-const loadDemo = () => {
+const demos = document.querySelectorAll('memory-garden-demo, xeque-na-esteira-demo');
+const loadDemo = (demo) => {
+  const name = demo.localName;
   const script = document.createElement('script');
-  script.src = 'assets/memory-garden-demo/memory-garden-demo.js';
+  script.src = `assets/${name}/${name}.js`;
   document.head.append(script);
 };
 if ('IntersectionObserver' in window) {
   const demoObserver = new IntersectionObserver((entries) => {
-    if (entries.some((entry) => entry.isIntersecting)) {
-      demoObserver.disconnect();
-      loadDemo();
-    }
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      demoObserver.unobserve(entry.target);
+      loadDemo(entry.target);
+    });
   }, { rootMargin: '400px 0px' });
-  demoObserver.observe(demo);
+  demos.forEach((demo) => demoObserver.observe(demo));
 } else {
-  loadDemo();
+  demos.forEach(loadDemo);
 }
 
-const videoLink = document.getElementById('open-video');
 const videoDialog = document.getElementById('video-dialog');
+const videoTitle = document.getElementById('video-dialog-titulo');
 const video = videoDialog.querySelector('video');
-videoLink.addEventListener('click', (event) => {
-  if (typeof videoDialog.showModal !== 'function') return;
-  event.preventDefault();
-  videoDialog.showModal();
-  video.play().catch(() => {});
+document.querySelectorAll('.video-link').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    if (typeof videoDialog.showModal !== 'function') return;
+    event.preventDefault();
+    const [width, height] = link.dataset.size.split('x');
+    video.width = width;
+    video.height = height;
+    video.poster = link.dataset.poster;
+    video.src = link.href;
+    videoTitle.textContent = link.dataset.title;
+    videoDialog.showModal();
+    video.play().catch(() => {});
+  });
 });
 videoDialog.addEventListener('click', (event) => {
   if (event.target === videoDialog) videoDialog.close();
