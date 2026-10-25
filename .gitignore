@@ -1,1 +1,7 @@
-/style - Copia.css
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
