@@ -1048,6 +1048,7 @@ h2 {
 /* ---------- Projects ---------- */
 .project {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 40px;
   margin-bottom: clamp(88px, 10vw, 130px);
 }
@@ -1065,8 +1066,9 @@ h2 {
 .project-top {
   grid-area: top;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
+  gap: 10px 14px;
   margin-bottom: 18px;
   font-size: 12px;
 }
@@ -2088,7 +2090,7 @@ xeque-na-esteira-demo:not(:defined) {
     grid-column: span 12;
   }
   .project-info {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "top" "title" "desc" "links" "facts";
   }
   .facts {
@@ -2282,9 +2284,16 @@ xeque-na-esteira-demo:not(:defined) {
   }
   .device {
     border-radius: 14px;
+    /* no celular a inclinação 3D deforma demos altas e pode deixá-las em branco */
+    transform: none;
+    will-change: auto;
   }
   .device-bar .mono {
     font-size: 11px;
+  }
+  reencontro-demo:not(:defined) {
+    aspect-ratio: auto;
+    min-height: 1810px;
   }
   memory-garden-demo:not(:defined) {
     min-height: 1040px;
