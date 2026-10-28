@@ -262,46 +262,9 @@ animateCanvas(contactField, ({ ctx, width, height }, time) => {
   ctx.globalAlpha = 1;
 });
 
-/* ---------- Scroll: progresso, método e dispositivos ---------- */
+/* ---------- Scroll: progresso e dispositivos ---------- */
 const progress = document.querySelector('.progress');
-const method = document.getElementById('metodo');
-const methodSticky = method.querySelector('.method-sticky');
-const stack = document.getElementById('method-stack');
-const stepsList = document.getElementById('steps');
-const steps = [...stepsList.children];
-const layers = [...stack.children];
 const devices = [...document.querySelectorAll('[data-device]')];
-let activeStep = -1;
-let methodIsSticky = true;
-
-const setActiveStep = (index) => {
-  if (index === activeStep) return;
-  activeStep = index;
-  steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
-  layers.forEach((layer, i) => layer.classList.toggle('is-active', i === index));
-};
-
-const updateMethod = () => {
-  const rect = method.getBoundingClientRect();
-  const travel = rect.height - window.innerHeight;
-  const p = methodIsSticky && travel > 0
-    ? clamp(-rect.top / travel, 0, 1)
-    : clamp((window.innerHeight * 0.6 - rect.top) / rect.height, 0, 1);
-  const spread = clamp(p / 0.18, 0, 1);
-  stack.style.setProperty('--p', p.toFixed(3));
-  stack.style.setProperty('--spread', (spread * spread * (3 - 2 * spread)).toFixed(3));
-  stepsList.style.setProperty('--p', p.toFixed(3));
-  setActiveStep(Math.min(steps.length - 1, Math.floor(p * steps.length)));
-};
-
-steps.forEach((step, i) => {
-  step.addEventListener('click', () => {
-    if (!methodIsSticky) return;
-    const travel = method.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: method.offsetTop + travel * ((i + 0.5) / steps.length), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
-  });
-});
-
 const updateDevices = () => {
   devices.forEach((device) => {
     if (reduceMotion.matches) {
@@ -333,19 +296,14 @@ const onScroll = () => {
   progress.style.setProperty('--progress', max > 0 ? (window.scrollY / max).toFixed(4) : '0');
   header.classList.toggle('is-scrolled', window.scrollY > 10);
   updateTimeline();
-  updateMethod();
   updateDevices();
 };
 const requestScrollUpdate = () => {
   if (!scrollFrame) scrollFrame = requestAnimationFrame(onScroll);
 };
-const onResize = () => {
-  methodIsSticky = getComputedStyle(methodSticky).position === 'sticky';
-  requestScrollUpdate();
-};
 window.addEventListener('scroll', requestScrollUpdate, { passive: true });
-window.addEventListener('resize', onResize);
-onResize();
+window.addEventListener('resize', requestScrollUpdate);
+requestScrollUpdate();
 
 /* ---------- Hora local ---------- */
 const localTime = document.getElementById('local-time');
@@ -435,7 +393,7 @@ const commands = {
     themeToggle.click();
     return [`Tema <span class="t-hi">${root.dataset.theme === 'light' ? 'claro' : 'escuro'}</span> ativado.`];
   },
-  ls: () => ['sobre.md  trajetoria.md  atuacao.md  metodo.md  <span class="t-ok">projetos/</span>  stack.json  contato.txt'],
+  ls: () => ['sobre.md  trajetoria.md  atuacao.md  <span class="t-ok">projetos/</span>  stack.json  contato.txt'],
   date: () => [new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'short', timeZone: 'America/Sao_Paulo' }).format(new Date())],
   sudo: () => ['Permissão negada. Mas dá para negociar o escopo.'],
   echo: (args) => [escapeHtml(args)],
