@@ -2284,9 +2284,6 @@ xeque-na-esteira-demo:not(:defined) {
   }
   .device {
     border-radius: 14px;
-    /* no celular a inclinação 3D deforma demos altas e pode deixá-las em branco */
-    transform: none;
-    will-change: auto;
   }
   .device-bar .mono {
     font-size: 11px;
