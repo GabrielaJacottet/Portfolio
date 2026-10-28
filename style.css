@@ -1427,6 +1427,24 @@ memory-garden-demo,
 xeque-na-esteira-demo {
   display: block;
 }
+reencontro-demo {
+  display: block;
+}
+reencontro-demo:not(:defined) {
+  aspect-ratio: 2048 / 1908;
+  background: #fbf3ea;
+}
+/* Selo "IA embarcada" do Reencontro */
+.ia-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px 5px 6px; border-radius: 999px;
+  background: #2A1E16; color: #FBF3EA; font: 600 .84rem/1.1 "Nunito Sans", system-ui, sans-serif; white-space: nowrap;
+  box-shadow: 0 0 0 1.5px rgba(194,65,12,.55), 0 8px 18px -12px rgba(194,65,12,.9); cursor: help; }
+.ia-badge__icon { position: relative; width: 26px; height: 26px; border-radius: 50%; background: #C2410C; display: grid; place-items: center; flex: none; }
+.ia-badge__icon svg { width: 16px; height: 16px; display: block; }
+.ia-badge__icon::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 2px solid #C2410C; animation: ia-badge-pulse 1.8s ease-out infinite; }
+.ia-badge b { font-weight: 800; }
+.ia-badge__sub { color: #E9C9AE; }
+@keyframes ia-badge-pulse { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(1.6); } }
+@media (prefers-reduced-motion: reduce) { .ia-badge__icon::after { animation: none; opacity: 0; } }
 memory-garden-demo:not(:defined) {
   min-height: 585px;
   background: #e9e6de;

@@ -1,0 +1,28 @@
+<!--
+  Selo "IA embarcada" para o card do Reencontro no portfólio.
+  Cole o <style> uma vez na página e o <span class="ia-badge"> onde quiser o selo.
+  Para a versão em inglês, troque os textos por "On-device AI" e "runs on the phone".
+-->
+<style>
+  .ia-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px 5px 6px; border-radius: 999px;
+    background: #2A1E16; color: #FBF3EA; font: 600 .84rem/1.1 "Nunito Sans", system-ui, sans-serif; white-space: nowrap;
+    box-shadow: 0 0 0 1.5px rgba(194,65,12,.55), 0 8px 18px -12px rgba(194,65,12,.9); cursor: help; }
+  .ia-badge__icon { position: relative; width: 26px; height: 26px; border-radius: 50%; background: #C2410C; display: grid; place-items: center; flex: none; }
+  .ia-badge__icon svg { width: 16px; height: 16px; display: block; }
+  .ia-badge__icon::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 2px solid #C2410C; animation: ia-badge-pulse 1.8s ease-out infinite; }
+  .ia-badge b { font-weight: 800; }
+  .ia-badge__sub { color: #E9C9AE; }
+  @keyframes ia-badge-pulse { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(1.6); } }
+  @media (prefers-reduced-motion: reduce) { .ia-badge__icon::after { animation: none; opacity: 0; } }
+</style>
+
+<span class="ia-badge" role="note"
+      title="O reconhecimento de imagens (rede DINOv2) roda no próprio celular, sem servidor de IA, e funciona offline.">
+  <span class="ia-badge__icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 10h4v4h-4z" fill="#fff" stroke="none"/>
+      <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>
+    </svg>
+  </span>
+  <b>IA embarcada</b><span class="ia-badge__sub">· roda no celular</span>
+</span>

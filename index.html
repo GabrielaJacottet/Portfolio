@@ -135,7 +135,7 @@
         <article class="card card-about" data-reveal data-tilt>
           <p>Sou bacharel em <strong>Ciência da Computação</strong> e comecei como desenvolvedora, criando ERP em Delphi e SQL. Na Reserva foram 13 anos de evolução: de analista de sistemas e banco de dados a <strong>coordenadora de TI</strong>, até liderar como <strong>Product Owner e Tribe Lead</strong> a tribo de Integrações de E-commerce e Marketplace.</p>
           <p>Depois, atuei como PO em produtos do setor público, como o app Android de fiscalização do CREA-ES, que acompanhei do levantamento com o cliente à entrega, e sistemas da Defensoria SP. Em 2026, cheguei à UneCont. Entendo como as coisas são construídas e converso de igual para igual com a engenharia, da regra de negócio ao contrato da API.</p>
-          <p>Uso <strong>IA</strong> no dia a dia, com ChatGPT, Claude e Gemini, e também para desenvolver software: um dos sistemas que construí tem IA embarcada. E continuo construindo por prazer, como mostram os projetos desta página.</p>
+          <p>Uso <strong>IA</strong> no dia a dia, com ChatGPT, Claude e Gemini, e também para desenvolver software. E continuo construindo por prazer, como mostram os projetos desta página, um deles com IA embarcada.</p>
         </article>
         <article class="card card-now" data-reveal data-tilt>
           <p class="card-label mono">Agora em</p>
@@ -435,11 +435,45 @@
         <p class="section-intro">Projetos pessoais em que cuido de tudo, da ideia ao código. Cada um nasceu de uma necessidade real e tem uma demo interativa para explorar aqui mesmo.</p>
       </div>
 
+      <article class="project" id="reencontro" aria-labelledby="reencontro-titulo">
+        <div class="project-info" data-reveal>
+          <div class="project-top">
+            <span class="badge"><span class="status-dot"></span> No ar</span>
+            <span class="ia-badge" role="note" title="O reconhecimento de imagens (rede DINOv2) roda no próprio celular, sem servidor de IA, e funciona offline.">
+              <span class="ia-badge__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 10h4v4h-4z" fill="#fff" stroke="none"/>
+                  <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>
+                </svg>
+              </span>
+              <b>IA embarcada</b><span class="ia-badge__sub">· roda no celular</span>
+            </span>
+            <span class="mono faint">Projeto 01</span>
+          </div>
+          <h3 id="reencontro-titulo">Reencontro</h3>
+          <p>Viu um animal perdido? Tire uma foto: o app compara com os pets desaparecidos e mostra os mais parecidos. Toque no celular da demonstração ou no seletor de animal para assumir o controle.</p>
+          <dl class="facts">
+            <div><dt class="mono">Problema</dt><dd>Ajudar pets perdidos a voltar para casa, ligando quem encontra a quem procura.</dd></div>
+            <div><dt class="mono">IA embarcada</dt><dd>O reconhecimento de imagens (rede DINOv2) roda no próprio celular, sem servidor de IA, e funciona offline.</dd></div>
+            <div><dt class="mono">Meu papel</dt><dd>Ideia, produto, design e desenvolvimento.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="button button-small" href="https://gabrielajacottet.github.io/reencontro/" target="_blank" rel="noopener noreferrer">Ver o app ↗</a>
+            <a class="link" href="https://github.com/gabrielajacottet/reencontro" target="_blank" rel="noopener noreferrer">Código ↗</a>
+            <a class="link video-link" href="assets/reencontro_demo/reencontro-demo.mp4" data-poster="assets/reencontro_demo/reencontro-demo-poster.jpg" data-size="2048x1908" data-title="Reencontro em vídeo" aria-haspopup="dialog">Vídeo ▶</a>
+          </div>
+        </div>
+        <div class="device" data-device>
+          <div class="device-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">gabrielajacottet.github.io/reencontro</span></div>
+          <reencontro-demo lang="pt" data-src="assets/reencontro_demo/reencontro-demo.js"></reencontro-demo>
+        </div>
+      </article>
+
       <article class="project" id="memory-garden" aria-labelledby="memory-garden-titulo">
         <div class="project-info" data-reveal>
           <div class="project-top">
             <span class="badge"><span class="status-dot"></span> No ar</span>
-            <span class="mono faint">Projeto 01</span>
+            <span class="mono faint">Projeto 02</span>
           </div>
           <h3 id="memory-garden-titulo">My Memory Garden</h3>
           <p>Cada memória vira uma flor, e a privacidade é decidida uma por uma. Clique em qualquer botão da demonstração para assumir o controle.</p>
@@ -464,7 +498,7 @@
         <div class="project-info" data-reveal>
           <div class="project-top">
             <span class="badge"><span class="status-dot"></span> No ar</span>
-            <span class="mono faint">Projeto 02</span>
+            <span class="mono faint">Projeto 03</span>
           </div>
           <h3 id="xeque-na-esteira-titulo">Xeque na Esteira</h3>
           <p>Xadrez com peças aleatórias numa esteira e ondas de inimigos, feito para ensinar xadrez a um adolescente de 12 anos. Use os capítulos, pause ou desligue as setas de intenção.</p>
@@ -530,12 +564,12 @@
         <article class="card feature" data-reveal data-tilt>
           <div class="orb" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
           <p class="card-label mono">Inteligência artificial</p>
-          <h3>IA no dia a dia e no produto</h3>
+          <h3>IA no dia a dia e no desenvolvimento</h3>
           <p class="feature-text">IA faz parte da minha rotina e da forma como construo software.</p>
           <ul class="ai-uses">
             <li><strong>Rotina de trabalho</strong><span>ChatGPT, Claude e Gemini fazem parte do meu dia a dia.</span></li>
             <li><strong>Desenvolvimento de software</strong><span>Uso IA para construir software, da ideia ao código.</span></li>
-            <li><strong>IA embarcada</strong><span>Um dos softwares que desenvolvi tem IA integrada ao próprio produto.</span></li>
+            <li><strong>IA embarcada</strong><span>No Reencontro, o reconhecimento de imagens roda no próprio celular, sem servidor e offline.</span></li>
           </ul>
           <ul class="tags"><li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>Desenvolvimento com IA</li><li>IA embarcada</li></ul>
         </article>

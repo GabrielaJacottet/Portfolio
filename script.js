@@ -405,7 +405,7 @@ const commands = {
   ia: () => [
     '<span class="t-ok">rotina</span>   ChatGPT · Claude · Gemini no dia a dia',
     '<span class="t-ok">dev</span>      IA para desenvolver software, da ideia ao código',
-    '<span class="t-ok">produto</span>  um dos softwares que desenvolvi tem IA embarcada',
+    '<span class="t-ok">produto</span>  Reencontro: reconhecimento de imagens no próprio celular',
   ],
   certificacoes: () => [
     '<span class="t-ok">✓</span> CSPO · Certified Scrum Product Owner, Scrum Alliance',
@@ -413,6 +413,7 @@ const commands = {
     '<span class="t-ok">✓</span> Espanhol C1 · Inglês B2',
   ],
   projetos: () => [
+    `<span class="t-ok">✓</span> ${externalLink('https://gabrielajacottet.github.io/reencontro/', 'reencontro')}         pets perdidos reconhecidos por foto, com IA no celular`,
     `<span class="t-ok">✓</span> ${externalLink('https://gabrielajacottet.github.io/my-memory-garden/#/', 'my-memory-garden')}   memórias que viram flores, com privacidade por padrão`,
     `<span class="t-ok">✓</span> ${externalLink('https://gabrielajacottet.github.io/xeque-na-esteira/', 'xeque-na-esteira')}   xadrez com esteira e ondas para quem está começando`,
     '<span class="t-dim">…</span> próximos           saindo do backlog',
@@ -557,11 +558,11 @@ copyButton.addEventListener('click', async () => {
 });
 
 /* ---------- Demos sob demanda ---------- */
-const demos = document.querySelectorAll('memory-garden-demo, xeque-na-esteira-demo');
+const demos = document.querySelectorAll('reencontro-demo, memory-garden-demo, xeque-na-esteira-demo');
 const loadDemo = (demo) => {
   const name = demo.localName;
   const script = document.createElement('script');
-  script.src = `assets/${name}/${name}.js`;
+  script.src = demo.dataset.src || `assets/${name}/${name}.js`;
   document.head.append(script);
 };
 if ('IntersectionObserver' in window) {
